@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VRide – Meet people through your car | App for car enthusiasts</title>
+<meta name="description" content="VRide is the app for car enthusiasts. Match with people who drive like you and discover the most powerful cars around you. Coming soon to iOS and Android.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://thevride.com/en/">
+<link rel="alternate" hreflang="cs" href="https://thevride.com/">
+<link rel="alternate" hreflang="en" href="https://thevride.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://thevride.com/en/">
+<meta name="author" content="David Fikar, Tadeáš Komůrka">
+<meta name="theme-color" content="#14171C">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VRide">
+<meta property="og:title" content="VRide – Meet people through your car">
+<meta property="og:description" content="The app for car enthusiasts. Match with people who drive like you. Coming soon to iOS and Android.">
+<meta property="og:url" content="https://thevride.com/en/">
+<meta property="og:image" content="https://thevride.com/og-image-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VRide – Meet people through your car. The app for car enthusiasts.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VRide – Meet people through your car">
+<meta name="twitter:description" content="The app for car enthusiasts. Match with people who drive like you. Coming soon to iOS and Android.">
+<meta name="twitter:image" content="https://thevride.com/og-image-en.png">
+<meta name="twitter:image:alt" content="VRide – Meet people through your car. The app for car enthusiasts.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://thevride.com/#organization",
+      "name": "VRide",
+      "url": "https://thevride.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thevride.com/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "vride@thevride.com",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "David Fikar"
+        },
+        {
+          "@type": "Person",
+          "name": "Tadeáš Komůrka"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/vride__/",
+        "https://www.tiktok.com/@vride95"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thevride.com/#website",
+      "url": "https://thevride.com/",
+      "name": "VRide",
+      "inLanguage": [
+        "cs",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://thevride.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://thevride.com/en/#webpage",
+      "url": "https://thevride.com/en/",
+      "name": "VRide – Meet people through your car | App for car enthusiasts",
+      "description": "VRide is the app for car enthusiasts. Match with people who drive like you and discover the most powerful cars around you. Coming soon to iOS and Android.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://thevride.com/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://thevride.com/og-image-en.png",
+        "width": 1200,
+        "height": 630
+      }
+    }
+  ]
+}
+</script>
+<script>
+/* Jazyk: kdo nemá uloženou volbu a má prohlížeč v jiném jazyce než CZ/SK, dostane anglickou verzi.
+   Vyhledávače (Google, Seznam, Bing…) se nepřesměrovávají, aby indexovaly obě verze zvlášť. */
+(function () {
+  var PAGE_LANG = "en";
+  if (/bot|crawl|spider|slurp|seznam|lighthouse|headless|preview|facebookexternalhit/i.test(navigator.userAgent || "")) return;
+  var saved = null;
+  try { saved = localStorage.getItem("vride-lang"); } catch (e) {}
+  var browser = ((navigator.languages && navigator.languages[0]) || navigator.language || "").slice(0, 2).toLowerCase();
+  var want = (saved === "cs" || saved === "en") ? saved : ((browser === "cs" || browser === "sk") ? "cs" : "en");
+  if (PAGE_LANG === "cs" && want === "en") location.replace("/en/");
+  else if (PAGE_LANG === "en" && saved === "cs") location.replace("/");
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== Barvy VRide ===== */
+  :root {
+    --ink: #14171C;        /* pozadí */
+    --ink-2: #1D2128;      /* pole formuláře */
+    --ink-3: #2A2F38;      /* okraje */
+    --white: #F6F5F2;      /* text */
+    --grey: #8E939C;       /* vedlejší text */
+    --red: #E14957;        /* barva V z loga */
+    --font: "Saira", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--ink); color: var(--white);
+    font: 400 1.0625rem/1.6 var(--font);
+    display: flex; flex-direction: column; min-height: 100%;
+    overflow-x: hidden; position: relative;
+  }
+  a { color: var(--white); }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+  /* Logo vpravo (jen na PC) */
+  .mark {
+    position: fixed; right: max(6vw, calc((100vw - 1100px) / 2 + 3rem)); top: 50%;
+    transform: translateY(-50%); width: min(24vw, 300px); height: auto; z-index: 0; pointer-events: none;
+  }
+
+  .wrap { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem); position: relative; z-index: 1; }
+
+  header .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; padding-bottom: 1.75rem; }
+  .logo { font: 800 1.6rem/1 var(--font); font-style: italic; letter-spacing: -.01em; text-decoration: none; color: var(--white); }
+  .logo { display: inline-flex; align-items: center; gap: .55rem; font-style: normal; font-family: Arial, Helvetica, sans-serif; }
+  .logo svg { width: 26px; height: auto; }
+  .logo span { color: var(--red); }
+  .lang { display: flex; gap: .25rem; }
+  .lang a {
+    display: inline-block; text-decoration: none; background: none; border: 0; color: var(--grey); cursor: pointer;
+    font: 600 .9rem var(--font); line-height: normal; padding: .3rem .6rem; border-radius: 6px;
+  }
+  .lang a[aria-current="page"] { color: var(--white); background: var(--ink-2); }
+
+  main { flex: 1; display: flex; align-items: center; padding: 2rem 0 4rem; }
+  .content { max-width: 540px; }
+  .soon {
+    display: inline-flex; align-items: center; gap: .55rem;
+    font: 600 .95rem var(--font); color: var(--white);
+    background: var(--ink-2); border: 1px solid var(--ink-3);
+    padding: .4rem .9rem .4rem .75rem; border-radius: 999px; margin: 0 0 1.5rem;
+  }
+  .soon i { width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(225,73,87,0); } 0%,100% { box-shadow: 0 0 0 0 rgba(225,73,87,.6); } }
+  @media (prefers-reduced-motion: reduce) { .soon i { animation: none; } }
+  h1 {
+    font: 800 clamp(2.6rem, 7vw, 4.4rem)/.98 var(--font); font-style: italic;
+    letter-spacing: -.025em; margin: 0 0 1.25rem; text-wrap: balance;
+  }
+  .lead { color: var(--grey); font-size: 1.15rem; margin: 0 0 2.25rem; }
+
+  .row { display: flex; background: var(--ink-2); border: 1px solid var(--ink-3); border-radius: 12px; padding: .35rem; }
+  .row:focus-within { border-color: var(--red); }
+  input[type="email"] {
+    flex: 1; min-width: 0; background: none; border: 0; outline: none;
+    font: 500 1.05rem var(--font); color: var(--white); padding: .7rem .8rem;
+  }
+  input[type="email"]::placeholder { color: var(--grey); }
+  button.submit {
+    font: 600 1rem var(--font); color: #fff; background: var(--red);
+    border: 0; border-radius: 9px; padding: 0 1.3rem; cursor: pointer; white-space: nowrap;
+  }
+  button.submit:hover { filter: brightness(1.08); }
+  button.submit:disabled { opacity: .6; cursor: wait; }
+
+  .consent { display: flex; gap: .6rem; align-items: flex-start; margin-top: 1rem; font-size: .9rem; color: var(--grey); }
+  .consent input { accent-color: var(--red); width: 1.05rem; height: 1.05rem; margin-top: .25rem; flex: none; }
+  .consent a { color: var(--grey); }
+  .sr { position: absolute; left: -9999px; }
+  .status { min-height: 1.6rem; margin: .9rem 0 0; font-weight: 500; }
+  .status.ok { color: var(--white); }
+  .status.err { color: var(--red); }
+
+  .platforms { margin-top: 1.5rem; color: var(--grey); font-size: .95rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .platforms span { display: inline-flex; align-items: center; gap: .45rem; }
+  .platforms svg { width: 18px; height: 18px; fill: currentColor; }
+
+  footer .wrap {
+    padding-top: 1.25rem; padding-bottom: 1.75rem; color: var(--grey); font-size: .88rem;
+    display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between;
+  }
+  footer a { color: var(--grey); }
+
+  @media (max-width: 760px) {
+    .mark { display: none; }
+  }
+  @media (max-width: 420px) {
+    .row { flex-direction: column; gap: .35rem; }
+    button.submit { padding: .85rem; }
+  }
+</style>
+</head>
+<body>
+
+<svg class="mark" viewBox="30 10 140 170" aria-hidden="true"><polygon points="45,18 78,30 100,158" fill="#F6F5F2"/><polygon points="155,18 122,30 100,158" fill="#F6F5F2"/><circle cx="100" cy="160" r="10" fill="#E14957"/></svg>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="/"><svg viewBox="30 10 140 170" aria-hidden="true"><polygon points="45,18 78,30 100,158" fill="#F6F5F2"/><polygon points="155,18 122,30 100,158" fill="#F6F5F2"/><circle cx="100" cy="160" r="10" fill="#E14957"/></svg><b><span>V</span>Ride</b></a>
+    <nav class="lang" aria-label="Jazyk / Language">
+      <a href="/" hreflang="cs" lang="cs" data-lang="cs">CZ</a>
+      <a href="/en/" hreflang="en" lang="en" data-lang="en" aria-current="page">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="content">
+      <p class="soon"><i></i><span>Coming soon</span></p>
+      <h1>Meet people through your car.</h1>
+      <p class="lead">Match with people who drive like you do. Leave your email and we&#x27;ll send you the download link on launch day.</p>
+
+      <form id="waitlist" novalidate>
+        <label for="email" class="sr">Email</label>
+        <div class="row">
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com">
+          <button class="submit" type="submit">Notify me</button>
+        </div>
+        <input class="sr" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent">
+          <input type="checkbox" id="consent" required>
+          <span>I agree to have my email processed so you can send me the VRide link. <a href="https://dfikar28.github.io/VRide-legal/privacy-policy-en.html" target="_blank" rel="noopener">Privacy policy</a></span>
+        </label>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="platforms">
+        <span><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>App Store</span>
+        <span><svg viewBox="0 0 24 24"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l10-10.2zm11.1 11.3 2.9 2.9-11 6.3c-.5.3-1 .3-1.4.2zm0-2.2L4.2 1.6c.4-.1.9-.1 1.4.2l11 6.3zm4.2-1.6 3 1.7c.9.5.9 1.4 0 1.9l-3 1.7-3.1-3.1z"/></svg>Google Play</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 VRide</span>
+    <span><a href="mailto:vride@thevride.com">vride@thevride.com</a> &nbsp;&nbsp; <a href="https://www.instagram.com/vride__/" target="_blank" rel="me noopener">Instagram</a> &nbsp;&nbsp; <a href="https://www.tiktok.com/@vride95" target="_blank" rel="me noopener">TikTok</a> &nbsp;&nbsp; <a href="https://dfikar28.github.io/VRide-legal/privacy-policy-en.html">Privacy policy</a></span>
+  </div>
+</footer>
+
+<script>
+/* ===== Nastavení Supabase ===== */
+const SUPABASE_URL = "https://ddzuuzlptwfqhvxzewcv.supabase.co";
+const SUPABASE_KEY = "sb_publishable_xPwusmzYbiLdK8S74Z6h3Q_XoSdnYFD";
+const PAGE_LANG = "en";
+const T = {
+  "ok": "Done. We'll email you the link when VRide launches.",
+  "errEmail": "Enter a valid email address.",
+  "errConsent": "Please confirm consent to email processing.",
+  "errNet": "Your email couldn't be saved. Try again in a moment."
+};
+
+/* Kliknutí na CZ/EN si zapamatuje volbu (přesměrování v hlavičce ji pak respektuje). */
+document.querySelectorAll(".lang a").forEach(a => a.addEventListener("click", () => {
+  try { localStorage.setItem("vride-lang", a.dataset.lang); } catch {}
+}));
+
+const statusEl = document.getElementById("status");
+function setStatus(msg, cls) { statusEl.textContent = msg; statusEl.className = "status " + cls; }
+
+const form = document.getElementById("waitlist");
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (form.website.value) return; // ochrana proti botům
+  const email = form.email.value.trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) return setStatus(T.errEmail, "err");
+  if (!document.getElementById("consent").checked) return setStatus(T.errConsent, "err");
+
+  const btn = form.querySelector(".submit"); btn.disabled = true;
+  try {
+    const res = await fetch(SUPABASE_URL + "/rest/v1/waitlist", {
+      method: "POST",
+      headers: { "apikey": SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: JSON.stringify({ email, lang: PAGE_LANG })
+    });
+    if (res.ok || res.status === 409) { // 409 = e-mail už v seznamu je
+      setStatus(T.ok, "ok"); form.reset();
+    } else throw new Error(res.status);
+  } catch { setStatus(T.errNet, "err"); }
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>

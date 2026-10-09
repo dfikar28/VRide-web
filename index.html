@@ -1,15 +1,115 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <link rel="icon" href="/favicon.ico" sizes="any">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VRide – seznam se přes svoje auto | Aplikace pro fanoušky aut</title>
+<meta name="description" content="VRide je aplikace pro fanoušky aut. Matchuj se s lidmi, kteří jezdí podobně jako ty, a objev nejsilnější auta ve svém okolí. Brzy na iOS i Android.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://thevride.com/">
+<link rel="alternate" hreflang="cs" href="https://thevride.com/">
+<link rel="alternate" hreflang="en" href="https://thevride.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://thevride.com/en/">
+<meta name="author" content="David Fikar, Tadeáš Komůrka">
+<meta name="theme-color" content="#14171C">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#14171C">
-<title>VRide</title>
-<meta name="description" content="VRide spojuje lidi přes jejich auta. Nech nám e-mail a dáme ti vědět, až appka vyjde.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VRide">
+<meta property="og:title" content="VRide – seznam se přes svoje auto">
+<meta property="og:description" content="Aplikace pro fanoušky aut. Matchuj se s lidmi, kteří jezdí podobně jako ty. Brzy na iOS i Android.">
+<meta property="og:url" content="https://thevride.com/">
+<meta property="og:image" content="https://thevride.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VRide – Seznam se přes svoje auto. Aplikace pro fanoušky aut.">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VRide – seznam se přes svoje auto">
+<meta name="twitter:description" content="Aplikace pro fanoušky aut. Matchuj se s lidmi, kteří jezdí podobně jako ty. Brzy na iOS i Android.">
+<meta name="twitter:image" content="https://thevride.com/og-image.png">
+<meta name="twitter:image:alt" content="VRide – Seznam se přes svoje auto. Aplikace pro fanoušky aut.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://thevride.com/#organization",
+      "name": "VRide",
+      "url": "https://thevride.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thevride.com/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "vride@thevride.com",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "David Fikar"
+        },
+        {
+          "@type": "Person",
+          "name": "Tadeáš Komůrka"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/vride__/",
+        "https://www.tiktok.com/@vride95"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thevride.com/#website",
+      "url": "https://thevride.com/",
+      "name": "VRide",
+      "inLanguage": [
+        "cs",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://thevride.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://thevride.com/#webpage",
+      "url": "https://thevride.com/",
+      "name": "VRide – seznam se přes svoje auto | Aplikace pro fanoušky aut",
+      "description": "VRide je aplikace pro fanoušky aut. Matchuj se s lidmi, kteří jezdí podobně jako ty, a objev nejsilnější auta ve svém okolí. Brzy na iOS i Android.",
+      "inLanguage": "cs",
+      "isPartOf": {
+        "@id": "https://thevride.com/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://thevride.com/og-image.png",
+        "width": 1200,
+        "height": 630
+      }
+    }
+  ]
+}
+</script>
+<script>
+/* Jazyk: kdo nemá uloženou volbu a má prohlížeč v jiném jazyce než CZ/SK, dostane anglickou verzi.
+   Vyhledávače (Google, Seznam, Bing…) se nepřesměrovávají, aby indexovaly obě verze zvlášť. */
+(function () {
+  var PAGE_LANG = "cs";
+  if (/bot|crawl|spider|slurp|seznam|lighthouse|headless|preview|facebookexternalhit/i.test(navigator.userAgent || "")) return;
+  var saved = null;
+  try { saved = localStorage.getItem("vride-lang"); } catch (e) {}
+  var browser = ((navigator.languages && navigator.languages[0]) || navigator.language || "").slice(0, 2).toLowerCase();
+  var want = (saved === "cs" || saved === "en") ? saved : ((browser === "cs" || browser === "sk") ? "cs" : "en");
+  if (PAGE_LANG === "cs" && want === "en") location.replace("/en/");
+  else if (PAGE_LANG === "en" && saved === "cs") location.replace("/");
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -49,11 +149,11 @@
   .logo svg { width: 26px; height: auto; }
   .logo span { color: var(--red); }
   .lang { display: flex; gap: .25rem; }
-  .lang button {
-    background: none; border: 0; color: var(--grey); cursor: pointer;
-    font: 600 .9rem var(--font); padding: .3rem .6rem; border-radius: 6px;
+  .lang a {
+    display: inline-block; text-decoration: none; background: none; border: 0; color: var(--grey); cursor: pointer;
+    font: 600 .9rem var(--font); line-height: normal; padding: .3rem .6rem; border-radius: 6px;
   }
-  .lang button[aria-pressed="true"] { color: var(--white); background: var(--ink-2); }
+  .lang a[aria-current="page"] { color: var(--white); background: var(--ink-2); }
 
   main { flex: 1; display: flex; align-items: center; padding: 2rem 0 4rem; }
   .content { max-width: 540px; }
@@ -120,30 +220,30 @@
 <header>
   <div class="wrap">
     <a class="logo" href="/"><svg viewBox="30 10 140 170" aria-hidden="true"><polygon points="45,18 78,30 100,158" fill="#F6F5F2"/><polygon points="155,18 122,30 100,158" fill="#F6F5F2"/><circle cx="100" cy="160" r="10" fill="#E14957"/></svg><b><span>V</span>Ride</b></a>
-    <div class="lang" role="group" aria-label="Jazyk / Language">
-      <button type="button" data-lang="cs" aria-pressed="true">CZ</button>
-      <button type="button" data-lang="en" aria-pressed="false">EN</button>
-    </div>
+    <nav class="lang" aria-label="Jazyk / Language">
+      <a href="/" hreflang="cs" lang="cs" data-lang="cs" aria-current="page">CZ</a>
+      <a href="/en/" hreflang="en" lang="en" data-lang="en">EN</a>
+    </nav>
   </div>
 </header>
 
 <main>
   <div class="wrap">
     <div class="content">
-      <p class="soon"><i></i><span data-i18n="soon">Již brzy</span></p>
-      <h1 data-i18n="title">Seznam se přes svoje auto.</h1>
-      <p class="lead" data-i18n="lead">Matchuj se s lidmi, kteří jezdí podobně jako ty. Nech nám e-mail a v den vydání ti pošleme odkaz ke stažení.</p>
+      <p class="soon"><i></i><span>Již brzy</span></p>
+      <h1>Seznam se přes svoje auto.</h1>
+      <p class="lead">Matchuj se s lidmi, kteří jezdí podobně jako ty. Nech nám e-mail a v den vydání ti pošleme odkaz ke stažení.</p>
 
       <form id="waitlist" novalidate>
-        <label for="email" class="sr" data-i18n="emailLabel">E-mail</label>
+        <label for="email" class="sr">E-mail</label>
         <div class="row">
-          <input id="email" name="email" type="email" autocomplete="email" required data-i18n-ph="placeholder" placeholder="tvuj@email.cz">
-          <button class="submit" type="submit" data-i18n="cta">Dát mi vědět</button>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="tvuj@email.cz">
+          <button class="submit" type="submit">Dát mi vědět</button>
         </div>
         <input class="sr" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label class="consent">
           <input type="checkbox" id="consent" required>
-          <span data-i18n-html="consent"></span>
+          <span>Souhlasím se zpracováním e-mailu za účelem zaslání odkazu na VRide. <a href="https://dfikar28.github.io/VRide-legal/privacy-policy.html" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a></span>
         </label>
         <p class="status" id="status" role="status" aria-live="polite"></p>
       </form>
@@ -159,7 +259,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 VRide</span>
-    <span><a href="mailto:vride@thevride.com">vride@thevride.com</a> &nbsp;&nbsp; <a href="https://dfikar28.github.io/VRide-legal/" data-i18n="privacy">Ochrana osobních údajů</a></span>
+    <span><a href="mailto:vride@thevride.com">vride@thevride.com</a> &nbsp;&nbsp; <a href="https://www.instagram.com/vride__/" target="_blank" rel="me noopener">Instagram</a> &nbsp;&nbsp; <a href="https://www.tiktok.com/@vride95" target="_blank" rel="me noopener">TikTok</a> &nbsp;&nbsp; <a href="https://dfikar28.github.io/VRide-legal/privacy-policy.html">Ochrana osobních údajů</a></span>
   </div>
 </footer>
 
@@ -167,77 +267,43 @@
 /* ===== Nastavení Supabase ===== */
 const SUPABASE_URL = "https://ddzuuzlptwfqhvxzewcv.supabase.co";
 const SUPABASE_KEY = "sb_publishable_xPwusmzYbiLdK8S74Z6h3Q_XoSdnYFD";
-
-const PRIVACY = "https://dfikar28.github.io/VRide-legal/privacy-policy-en.html";
+const PAGE_LANG = "cs";
 const T = {
-  cs: {
-    soon: "Již brzy",
-    title: "Seznam se přes svoje auto.",
-    lead: "Matchuj se s lidmi, kteří jezdí podobně jako ty. Nech nám e-mail a v den vydání ti pošleme odkaz ke stažení.",
-    emailLabel: "E-mail", placeholder: "tvuj@email.cz", cta: "Dát mi vědět",
-    consent: `Souhlasím se zpracováním e-mailu za účelem zaslání odkazu na VRide. <a href="${PRIVACY}" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a>`,
-    privacy: "Ochrana osobních údajů",
-    ok: "Hotovo. Až VRide vyjde, pošleme ti odkaz na e-mail.",
-    errEmail: "Zadej platný e-mail.",
-    errConsent: "Potvrď souhlas se zpracováním e-mailu.",
-    errNet: "E-mail se nepodařilo uložit. Zkus to za chvíli znovu."
-  },
-  en: {
-    soon: "Coming soon",
-    title: "Meet people through your car.",
-    lead: "Match with people who drive like you do. Leave your email and we'll send you the download link on launch day.",
-    emailLabel: "Email", placeholder: "you@email.com", cta: "Notify me",
-    consent: `I agree to have my email processed so you can send me the VRide link. <a href="${PRIVACY}" target="_blank" rel="noopener">Privacy policy</a>`,
-    privacy: "Privacy policy",
-    ok: "Done. We'll email you the link when VRide launches.",
-    errEmail: "Enter a valid email address.",
-    errConsent: "Please confirm consent to email processing.",
-    errNet: "Your email couldn't be saved. Try again in a moment."
-  }
+  "ok": "Hotovo. Až VRide vyjde, pošleme ti odkaz na e-mail.",
+  "errEmail": "Zadej platný e-mail.",
+  "errConsent": "Potvrď souhlas se zpracováním e-mailu.",
+  "errNet": "E-mail se nepodařilo uložit. Zkus to za chvíli znovu."
 };
 
-let lang = (navigator.language || "cs").slice(0, 2) === "cs" ? "cs" : "en";
-try { const saved = localStorage.getItem("vride-lang"); if (T[saved]) lang = saved; } catch {}
+/* Kliknutí na CZ/EN si zapamatuje volbu (přesměrování v hlavičce ji pak respektuje). */
+document.querySelectorAll(".lang a").forEach(a => a.addEventListener("click", () => {
+  try { localStorage.setItem("vride-lang", a.dataset.lang); } catch {}
+}));
 
 const statusEl = document.getElementById("status");
 function setStatus(msg, cls) { statusEl.textContent = msg; statusEl.className = "status " + cls; }
 
-function applyLang(l) {
-  lang = l; const t = T[l];
-  document.documentElement.lang = l;
-  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = t[el.dataset.i18n]);
-  document.querySelectorAll("[data-i18n-html]").forEach(el => el.innerHTML = t[el.dataset.i18nHtml]);
-  document.querySelectorAll("[data-i18n-ph]").forEach(el => el.placeholder = t[el.dataset.i18nPh]);
-  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l));
-  setStatus("", "");
-  try { localStorage.setItem("vride-lang", l); } catch {}
-}
-document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
-
 const form = document.getElementById("waitlist");
 form.addEventListener("submit", async e => {
   e.preventDefault();
-  const t = T[lang];
   if (form.website.value) return; // ochrana proti botům
   const email = form.email.value.trim().toLowerCase();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) return setStatus(t.errEmail, "err");
-  if (!document.getElementById("consent").checked) return setStatus(t.errConsent, "err");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) return setStatus(T.errEmail, "err");
+  if (!document.getElementById("consent").checked) return setStatus(T.errConsent, "err");
 
   const btn = form.querySelector(".submit"); btn.disabled = true;
   try {
     const res = await fetch(SUPABASE_URL + "/rest/v1/waitlist", {
       method: "POST",
       headers: { "apikey": SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
-      body: JSON.stringify({ email, lang })
+      body: JSON.stringify({ email, lang: PAGE_LANG })
     });
     if (res.ok || res.status === 409) { // 409 = e-mail už v seznamu je
-      setStatus(t.ok, "ok"); form.reset();
+      setStatus(T.ok, "ok"); form.reset();
     } else throw new Error(res.status);
-  } catch { setStatus(t.errNet, "err"); }
+  } catch { setStatus(T.errNet, "err"); }
   btn.disabled = false;
 });
-
-applyLang(lang);
 </script>
 </body>
 </html>
