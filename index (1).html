@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14171C">
+<title>VRide</title>
+<meta name="description" content="VRide spojuje lidi přes jejich auta. Nech nám e-mail a dáme ti vědět, až appka vyjde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== Barvy VRide ===== */
+  :root {
+    --ink: #14171C;        /* pozadí */
+    --ink-2: #1D2128;      /* pole formuláře */
+    --ink-3: #2A2F38;      /* okraje */
+    --white: #F6F5F2;      /* text */
+    --grey: #8E939C;       /* vedlejší text */
+    --red: #E14957;        /* barva V z loga */
+    --font: "Saira", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--ink); color: var(--white);
+    font: 400 1.0625rem/1.6 var(--font);
+    display: flex; flex-direction: column; min-height: 100%;
+    overflow-x: hidden; position: relative;
+  }
+  a { color: var(--white); }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+  /* Logo vpravo (jen na PC) */
+  .mark {
+    position: fixed; right: max(6vw, calc((100vw - 1100px) / 2 + 3rem)); top: 50%;
+    transform: translateY(-50%); width: min(24vw, 300px); height: auto; z-index: 0; pointer-events: none;
+  }
+
+  .wrap { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem); position: relative; z-index: 1; }
+
+  header .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; padding-bottom: 1.75rem; }
+  .logo { font: 800 1.6rem/1 var(--font); font-style: italic; letter-spacing: -.01em; text-decoration: none; color: var(--white); }
+  .logo { display: inline-flex; align-items: center; gap: .55rem; font-style: normal; font-family: Arial, Helvetica, sans-serif; }
+  .logo svg { width: 26px; height: auto; }
+  .logo span { color: var(--red); }
+  .lang { display: flex; gap: .25rem; }
+  .lang button {
+    background: none; border: 0; color: var(--grey); cursor: pointer;
+    font: 600 .9rem var(--font); padding: .3rem .6rem; border-radius: 6px;
+  }
+  .lang button[aria-pressed="true"] { color: var(--white); background: var(--ink-2); }
+
+  main { flex: 1; display: flex; align-items: center; padding: 2rem 0 4rem; }
+  .content { max-width: 540px; }
+  .soon {
+    display: inline-flex; align-items: center; gap: .55rem;
+    font: 600 .95rem var(--font); color: var(--white);
+    background: var(--ink-2); border: 1px solid var(--ink-3);
+    padding: .4rem .9rem .4rem .75rem; border-radius: 999px; margin: 0 0 1.5rem;
+  }
+  .soon i { width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(225,73,87,0); } 0%,100% { box-shadow: 0 0 0 0 rgba(225,73,87,.6); } }
+  @media (prefers-reduced-motion: reduce) { .soon i { animation: none; } }
+  h1 {
+    font: 800 clamp(2.6rem, 7vw, 4.4rem)/.98 var(--font); font-style: italic;
+    letter-spacing: -.025em; margin: 0 0 1.25rem; text-wrap: balance;
+  }
+  .lead { color: var(--grey); font-size: 1.15rem; margin: 0 0 2.25rem; }
+
+  .row { display: flex; background: var(--ink-2); border: 1px solid var(--ink-3); border-radius: 12px; padding: .35rem; }
+  .row:focus-within { border-color: var(--red); }
+  input[type="email"] {
+    flex: 1; min-width: 0; background: none; border: 0; outline: none;
+    font: 500 1.05rem var(--font); color: var(--white); padding: .7rem .8rem;
+  }
+  input[type="email"]::placeholder { color: var(--grey); }
+  button.submit {
+    font: 600 1rem var(--font); color: #fff; background: var(--red);
+    border: 0; border-radius: 9px; padding: 0 1.3rem; cursor: pointer; white-space: nowrap;
+  }
+  button.submit:hover { filter: brightness(1.08); }
+  button.submit:disabled { opacity: .6; cursor: wait; }
+
+  .consent { display: flex; gap: .6rem; align-items: flex-start; margin-top: 1rem; font-size: .9rem; color: var(--grey); }
+  .consent input { accent-color: var(--red); width: 1.05rem; height: 1.05rem; margin-top: .25rem; flex: none; }
+  .consent a { color: var(--grey); }
+  .sr { position: absolute; left: -9999px; }
+  .status { min-height: 1.6rem; margin: .9rem 0 0; font-weight: 500; }
+  .status.ok { color: var(--white); }
+  .status.err { color: var(--red); }
+
+  .platforms { margin-top: 1.5rem; color: var(--grey); font-size: .95rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .platforms span { display: inline-flex; align-items: center; gap: .45rem; }
+  .platforms svg { width: 18px; height: 18px; fill: currentColor; }
+
+  footer .wrap {
+    padding-top: 1.25rem; padding-bottom: 1.75rem; color: var(--grey); font-size: .88rem;
+    display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between;
+  }
+  footer a { color: var(--grey); }
+
+  @media (max-width: 760px) {
+    .mark { display: none; }
+  }
+  @media (max-width: 420px) {
+    .row { flex-direction: column; gap: .35rem; }
+    button.submit { padding: .85rem; }
+  }
+</style>
+</head>
+<body>
+
+<svg class="mark" viewBox="30 10 140 170" aria-hidden="true"><polygon points="45,18 78,30 100,158" fill="#F6F5F2"/><polygon points="155,18 122,30 100,158" fill="#F6F5F2"/><circle cx="100" cy="160" r="10" fill="#E14957"/></svg>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="/"><svg viewBox="30 10 140 170" aria-hidden="true"><polygon points="45,18 78,30 100,158" fill="#F6F5F2"/><polygon points="155,18 122,30 100,158" fill="#F6F5F2"/><circle cx="100" cy="160" r="10" fill="#E14957"/></svg><b><span>V</span>Ride</b></a>
+    <div class="lang" role="group" aria-label="Jazyk / Language">
+      <button type="button" data-lang="cs" aria-pressed="true">CZ</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="content">
+      <p class="soon"><i></i><span data-i18n="soon">Již brzy</span></p>
+      <h1 data-i18n="title">Seznam se přes svoje auto.</h1>
+      <p class="lead" data-i18n="lead">Matchuj se s lidmi, kteří jezdí podobně jako ty. Nech nám e-mail a v den vydání ti pošleme odkaz ke stažení.</p>
+
+      <form id="waitlist" novalidate>
+        <label for="email" class="sr" data-i18n="emailLabel">E-mail</label>
+        <div class="row">
+          <input id="email" name="email" type="email" autocomplete="email" required data-i18n-ph="placeholder" placeholder="tvuj@email.cz">
+          <button class="submit" type="submit" data-i18n="cta">Dát mi vědět</button>
+        </div>
+        <input class="sr" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent">
+          <input type="checkbox" id="consent" required>
+          <span data-i18n-html="consent"></span>
+        </label>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="platforms">
+        <span><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>App Store</span>
+        <span><svg viewBox="0 0 24 24"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l10-10.2zm11.1 11.3 2.9 2.9-11 6.3c-.5.3-1 .3-1.4.2zm0-2.2L4.2 1.6c.4-.1.9-.1 1.4.2l11 6.3zm4.2-1.6 3 1.7c.9.5.9 1.4 0 1.9l-3 1.7-3.1-3.1z"/></svg>Google Play</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 VRide</span>
+    <span><a href="mailto:vride@thevride.com">vride@thevride.com</a> &nbsp;&nbsp; <a href="https://dfikar28.github.io/VRide-legal/" data-i18n="privacy">Ochrana osobních údajů</a></span>
+  </div>
+</footer>
+
+<script>
+/* ===== Nastavení Supabase ===== */
+const SUPABASE_URL = "https://ddzuuzlptwfqhvxzewcv.supabase.co";
+const SUPABASE_KEY = "sb_publishable_xPwusmzYbiLdK8S74Z6h3Q_XoSdnYFD";
+
+const PRIVACY = "https://dfikar28.github.io/VRide-legal/privacy-policy-en.html";
+const T = {
+  cs: {
+    soon: "Již brzy",
+    title: "Seznam se přes svoje auto.",
+    lead: "Matchuj se s lidmi, kteří jezdí podobně jako ty. Nech nám e-mail a v den vydání ti pošleme odkaz ke stažení.",
+    emailLabel: "E-mail", placeholder: "tvuj@email.cz", cta: "Dát mi vědět",
+    consent: `Souhlasím se zpracováním e-mailu za účelem zaslání odkazu na VRide. <a href="${PRIVACY}" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a>`,
+    privacy: "Ochrana osobních údajů",
+    ok: "Hotovo. Až VRide vyjde, pošleme ti odkaz na e-mail.",
+    errEmail: "Zadej platný e-mail.",
+    errConsent: "Potvrď souhlas se zpracováním e-mailu.",
+    errNet: "E-mail se nepodařilo uložit. Zkus to za chvíli znovu."
+  },
+  en: {
+    soon: "Coming soon",
+    title: "Meet people through your car.",
+    lead: "Match with people who drive like you do. Leave your email and we'll send you the download link on launch day.",
+    emailLabel: "Email", placeholder: "you@email.com", cta: "Notify me",
+    consent: `I agree to have my email processed so you can send me the VRide link. <a href="${PRIVACY}" target="_blank" rel="noopener">Privacy policy</a>`,
+    privacy: "Privacy policy",
+    ok: "Done. We'll email you the link when VRide launches.",
+    errEmail: "Enter a valid email address.",
+    errConsent: "Please confirm consent to email processing.",
+    errNet: "Your email couldn't be saved. Try again in a moment."
+  }
+};
+
+let lang = (navigator.language || "cs").slice(0, 2) === "cs" ? "cs" : "en";
+try { const saved = localStorage.getItem("vride-lang"); if (T[saved]) lang = saved; } catch {}
+
+const statusEl = document.getElementById("status");
+function setStatus(msg, cls) { statusEl.textContent = msg; statusEl.className = "status " + cls; }
+
+function applyLang(l) {
+  lang = l; const t = T[l];
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = t[el.dataset.i18n]);
+  document.querySelectorAll("[data-i18n-html]").forEach(el => el.innerHTML = t[el.dataset.i18nHtml]);
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => el.placeholder = t[el.dataset.i18nPh]);
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l));
+  setStatus("", "");
+  try { localStorage.setItem("vride-lang", l); } catch {}
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+const form = document.getElementById("waitlist");
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const t = T[lang];
+  if (form.website.value) return; // ochrana proti botům
+  const email = form.email.value.trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) return setStatus(t.errEmail, "err");
+  if (!document.getElementById("consent").checked) return setStatus(t.errConsent, "err");
+
+  const btn = form.querySelector(".submit"); btn.disabled = true;
+  try {
+    const res = await fetch(SUPABASE_URL + "/rest/v1/waitlist", {
+      method: "POST",
+      headers: { "apikey": SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: JSON.stringify({ email, lang })
+    });
+    if (res.ok || res.status === 409) { // 409 = e-mail už v seznamu je
+      setStatus(t.ok, "ok"); form.reset();
+    } else throw new Error(res.status);
+  } catch { setStatus(t.errNet, "err"); }
+  btn.disabled = false;
+});
+
+applyLang(lang);
+</script>
+</body>
+</html>
